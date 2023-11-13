@@ -1,0 +1,20 @@
+.portfolio-gallery .gallery-intro h3 {
+  font-family: Poppins;
+}
+.portfolio-gallery .portfolio-items img {
+  width: 100vw;
+}
+.portfolio-gallery .portfolio-items .portfolio-item-desc h2,
+.portfolio-gallery .portfolio-items .portfolio-item-desc h3,
+.portfolio-gallery .portfolio-items .portfolio-item-desc h4 {
+  font-family: Poppins;
+}
+.portfolio-gallery .portfolio-items .portfolio-item-desc p {
+  font-weight: 300;
+  font-size: 1em;
+  text-align: justify;
+}
+.portfolio-gallery .portfolio-items .portfolio-item-desc p span.list {
+  font-weight: 500;
+  color: white;
+}/*# sourceMappingURL=work-style.css.map */

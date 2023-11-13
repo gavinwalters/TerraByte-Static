@@ -1,0 +1,41 @@
+.portfolio-intro {
+  h2 {
+    // max-width: 80vw;
+    // justify-content: center;
+  }
+}
+.portfolio-gallery {
+  .gallery-intro {
+    // max-width: 80vw;
+    h3 {
+      //   max-width: 80vw;
+      font-family: Poppins;
+    }
+  }
+  .portfolio-items {
+    img {
+      width: 100vw;
+    }
+    .portfolio-item-desc {
+      //   max-width: 80vw;
+      //   align-items: center;
+
+      h2,
+      h3,
+      h4 {
+        font-family: Poppins;
+        // max-width: 80vw;
+      }
+      p {
+        font-weight: 300;
+        font-size: 1em;
+        text-align: justify;
+        span.list {
+          //   display: inline-block;
+          font-weight: 500;
+          color: white;
+        }
+      }
+    }
+  }
+}

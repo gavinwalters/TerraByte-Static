@@ -41,6 +41,9 @@
       href="https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,300;0,400;1,300;1,400&family=Poppins:wght@100;200;300;400;500;600;700;800;900&family=Roboto:ital,wght@0,400;0,500;0,700;1,400;1,500;1,700&display=swap"
       rel="stylesheet"
     />
+
+
+
   </head>
   <body>
     <header>
@@ -213,12 +216,12 @@
           </g>
         </g>
       </svg>
-      <div class="navbar">
-        <ul>
+      <div class="navbar" id="navbar">
+        <ul id="navList">
           <li><a href="../">Home</a></li>
           <li><a href="/services">Services</a></li>
           <li><a id="active" href="/portfolio">Our Work</a></li>
-          <li><a href="#contact">Contact</a></li>
+          <li><a href="../#contact">Contact</a></li>
         </ul>
       </div>
     </header>
@@ -257,13 +260,94 @@
         <div class="portfolio-items">
           <!-- Portfolio Item -->
           <div class="portfolio-item">
-            <img src="path-to-image.jpg" alt="Project Title" />
+            <img
+              src="../images/norris_arm_render.webp"
+              alt="Norris Arm Website"
+            />
             <div class="portfolio-item-desc">
-              <h4>Project Title</h4>
+              <h2>Town of Norris Arm</h2>
+              <h3>
+                "Unlocking Community Potential: A 3-Fold Plan for Norris Arm
+                Website Success"
+              </h3>
               <p>
-                A brief description of the project highlighting unique features
-                or challenges overcome.
+                Our approach to the Norris Arm Website project was multifaceted,
+                aiming to cater to the diverse needs of residents, visitors, and
+                potential business opportunities:
               </p>
+              <p>
+                <span class="list">1. Residents:</span> Our primary goal was to
+                empower residents with easy access to vital town information.
+                Through intuitive navigation, real-time event updates, and a
+                vibrant community forum, we created an online space where
+                residents can stay informed, share stories, and engage in town
+                affairs.
+              </p>
+              <p>
+                <span class="list"> 2. Visitors: </span>
+                To entice tourists and the migrating population, we highlighted
+                Norris Arm's unique attractions and natural beauty. A dedicated
+                tourism section offers insights into local events,
+                accommodations, and recreational activities, promoting Norris
+                Arm as a must-visit destination.
+              </p>
+              <p>
+                <span class="list"> 3. Business Opportunities: </span>
+                Fostering economic growth was a key objective. We showcased
+                Norris Arm's potential as a business hub through a robust "Doing
+                Business" section. Here, we outlined investment advantages,
+                presented business opportunities, and provided essential
+                resources to facilitate economic development.
+              </p>
+              <p>
+                By addressing the distinct needs of these three groups, we
+                ensured the Norris Arm Website became a versatile platform that
+                not only serves the local community but also attracts visitors
+                and business ventures, fostering prosperity for all.
+              </p>
+            </div>
+          </div>
+          <!-- Portfolio Item -->
+          <div class="portfolio-item">
+            <img
+              src="../images/morgan_printing_render.webp"
+              alt="Morgan Printing Website"
+            />
+            <div class="portfolio-item-desc">
+              <h2>Morgan Printing Website</h2>
+              <h3>"PrintVision: Custom Print Solutions Website Development"</h3>
+              <p>
+                The Morgan Printing Website project was an innovative web
+                development task focused on creating a dynamic and user-friendly
+                digital presence for a printing company. Emphasizing both
+                aesthetic appeal and functional design, the project involved
+                crafting a responsive interface that streamlined the process of
+                ordering custom prints online. One of the unique features of the
+                site was the integration of a live preview tool that allowed
+                customers to see real-time updates of their custom designs. This
+                feature presented a technical challenge, requiring sophisticated
+                back-end algorithms to handle complex graphic rendering. Another
+                notable accomplishment was the development of a custom content
+                management system (CMS) tailored to the client's specific
+                workflow, enabling them to update product listings and manage
+                orders efficiently. The project also overcame the obstacle of
+                ensuring high performance and fast load times despite the heavy
+                graphic content. The result was a seamless, engaging user
+                experience that boosted the client's online sales and customer
+                satisfaction.
+              </p>
+            </div>
+          <!-- Portfolio Item -->
+          <div class="portfolio-item">
+            <img
+              src="../images/event3sixty_render.webp"
+              alt="Event 3Sixty Website"
+            />
+            <div class="portfolio-item-desc">
+              <h2>Event 3Sixty Website</h2>
+              <h3>"The Event 3Sixty Digital Experience: A Full-Spectrum Event Planning Portal"</h3>
+              <p>
+                The Event 3Sixty website was a landmark web development project designed to revolutionize how clients engage with event planning services. This project entailed the creation of a multifaceted website that not only showcased the vast range of services from weddings to conferences, and from AV to graphic design and marketing, but also integrated a sophisticated Request for Proposal (RFP) submission system. The site featured detailed service outlines, persuasive client testimonials, and a vibrant gallery of past events, providing a comprehensive view of the company's capabilities. A critical challenge was crafting a user experience that facilitated easy navigation across diverse services while maintaining a cohesive brand story. The successful implementation of these elements transformed the website into a leading platform within the industry, culminating in a significant 32% increase in business leads. The site became a testament to how digital innovation can amplify business growth and client engagement.              </p>
             </div>
           </div>
 
@@ -271,7 +355,7 @@
         </div>
         <!-- End Portfolio Items -->
 
-        <!-- This part is for the admin to upload new work to the portfolio -->
+        <!-- This part is for the admin to upload new work to the portfolio
         <div class="upload-section">
           <h3>Add New Project</h3>
           <form
@@ -300,7 +384,7 @@
 
             <input type="submit" value="Upload Project" />
           </form>
-        </div>
+        </div> -->
       </div>
     </section>
 

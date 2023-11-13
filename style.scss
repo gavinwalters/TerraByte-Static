@@ -37,6 +37,10 @@ header {
     padding-left: 2em;
     padding-right: 2em;
   }
+  .navbar a:hover {
+    color: #00907e;
+    cursor: pointer;
+  }
   .navbar a#active {
     color: #00b7a1;
     font-weight: bold;
