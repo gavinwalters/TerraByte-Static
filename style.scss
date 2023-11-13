@@ -37,6 +37,10 @@ header {
     padding-left: 2em;
     padding-right: 2em;
   }
+  .navbar a#active {
+    color: #00b7a1;
+    font-weight: bold;
+  }
 }
 
 .hero {
@@ -122,6 +126,24 @@ header {
       background-color: #00907e;
     }
   }
+}
+
+.services-hero {
+  background-image: linear-gradient(
+      to bottom,
+      rgba(0, 0, 0, 0.2) 0%,
+      rgba(0, 0, 0, 0.7) 100%
+    ),
+    url("/images/digital_cliffs.webp");
+}
+
+.portfolio-hero {
+  background-image: linear-gradient(
+      to bottom,
+      rgba(0, 0, 0, 0.2) 0%,
+      rgba(0, 0, 0, 0.7) 100%
+    ),
+    url("/images/digital_coast.webp");
 }
 
 .content {
