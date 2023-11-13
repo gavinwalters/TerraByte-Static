@@ -4,13 +4,33 @@ body {
   max-width: 100%;
 }
 
-.logotype {
+header {
   display: flex;
-  justify-content: center;
-  padding: 2em;
-  height: 60px;
+  justify-content: space-between;
+  align-content: center;
   background-color: #212429;
+  padding: 2em;
   max-width: 100%;
+  height: 60px;
+}
+header .logotype {
+  padding-left: 2em;
+  height: 60px;
+}
+header .navbar ul {
+  list-style: none;
+  display: flex;
+  justify-content: right;
+  flex-direction: row;
+  padding-right: 2em;
+  height: 1em;
+}
+header .navbar a {
+  color: aliceblue;
+  text-decoration: none;
+  font-family: "Poppins";
+  padding-left: 2em;
+  padding-right: 2em;
 }
 
 .hero {
