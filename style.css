@@ -1,7 +1,16 @@
+* {
+  overflow-x: hidden;
+}
+
 body {
   margin: 0;
   width: 100%;
   max-width: 100%;
+  min-width: 100%;
+}
+
+.lock-scroll {
+  position: fixed;
 }
 
 header {
@@ -10,12 +19,68 @@ header {
   align-content: center;
   background-color: #212429;
   padding: 2em;
+  position: relative;
   max-width: 100%;
   height: 60px;
 }
 header .logotype {
   padding-left: 2em;
   height: 60px;
+}
+header .hamburger {
+  display: none;
+  position: absolute;
+  top: 43px;
+  right: 1em;
+  flex-direction: column;
+  justify-content: space-around;
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  z-index: 10;
+  color: aliceblue;
+  font-size: 2em;
+}
+header .xmark {
+  display: none;
+  position: absolute;
+  top: 43px;
+  right: 1em;
+  flex-direction: column;
+  justify-content: space-around;
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  z-index: 10;
+  color: aliceblue;
+  font-size: 2em;
+}
+header .mobile-nav {
+  display: none;
+  position: absolute;
+  top: 60px;
+  left: 0;
+  width: 100%;
+  background-color: #212429;
+  z-index: 5;
+}
+header .mobile-nav ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+}
+header .mobile-nav ul li a {
+  font-family: Poppins;
+  display: block;
+  padding: 1em;
+  color: white;
+  text-decoration: none;
+}
+header .mobile-nav a#active {
+  color: #00b7a1;
+  font-weight: bold;
 }
 header .navbar ul {
   list-style: none;
@@ -39,6 +104,36 @@ header .navbar a:hover {
 header .navbar a#active {
   color: #00b7a1;
   font-weight: bold;
+}
+@media (max-width: 768px) {
+  header {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+  header .navbar {
+    display: none;
+  }
+  header .hamburger {
+    display: block;
+  }
+  header .xmark {
+    display: none;
+  }
+  header .mobile-nav {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    height: 100vh;
+    z-index: 9;
+  }
+  header .mobile-nav ul {
+    width: 100%;
+    height: 100%;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
 }
 
 .hero {
@@ -414,4 +509,108 @@ footer p {
   padding-left: 5em;
   font-weight: 300;
   letter-spacing: 1px;
+}
+
+@media (max-width: 768px) {
+  header {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+  header .logotype {
+    padding-left: 1em;
+  }
+  header .navbar {
+    display: none;
+  }
+  header .hamburger {
+    display: flex;
+  }
+  header .xmark {
+    display: none;
+  }
+  header .hamburger.active {
+    display: none;
+  }
+  header .xmark.active {
+    display: flex;
+  }
+  header .mobile-nav.active {
+    display: block;
+    overflow: none;
+  }
+  .lock-scroll {
+    position: fixed;
+  }
+}
+@media (max-width: 768px) {
+  .hero .h-1 {
+    padding: 1em;
+  }
+  .hero .h-1 h1 {
+    font-size: 6vw;
+  }
+  .hero .h-1 h2 {
+    font-size: 4vw;
+  }
+  .hero .h-1 button {
+    padding: 0.8em 1.6em;
+    font-size: 4vw;
+  }
+}
+@media (max-width: 768px) {
+  .content {
+    padding: 2em 1em;
+  }
+  .content p {
+    font-size: 4vw;
+    width: auto;
+    max-width: 80vw;
+    padding: 0;
+  }
+  .content button {
+    font-size: 3.5vw;
+  }
+}
+@media (max-width: 768px) {
+  .about .card-container {
+    flex-direction: column;
+    padding: 2em;
+  }
+  .about .card-container .card {
+    max-width: 100%;
+    padding: 1em 0;
+  }
+}
+@media (max-width: 768px) {
+  .content .solidus {
+    flex-direction: column-reverse;
+  }
+  .content .solidus .solidus-image {
+    padding: 0;
+    max-width: 100%;
+  }
+  .content .solidus .solidus-image img {
+    width: 100%;
+    max-width: 100vw;
+  }
+  .content .solidus .solidus-text {
+    padding: 0;
+    max-width: 80vw;
+  }
+}
+@media (max-width: 768px) {
+  #contact p {
+    max-width: 80%;
+  }
+  #contact button {
+    font-size: 3.5vw;
+  }
+}
+@media (max-width: 768px) {
+  footer {
+    text-align: center;
+  }
+  footer p {
+    padding: 0 1em;
+  }
 }/*# sourceMappingURL=style.css.map */

@@ -1,3 +1,5 @@
+// Define a breakpoint for mobile devices
+$mobile-breakpoint: 768px; // or the breakpoint you prefer
 .portfolio-intro {
   h2 {
     // max-width: 80vw;
@@ -36,6 +38,13 @@
           color: white;
         }
       }
+    }
+  }
+}
+@media (max-width: $mobile-breakpoint) {
+  .portfolio-item {
+    h3 {
+      padding: 0 1em; // Adjust padding
     }
   }
 }

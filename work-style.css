@@ -17,4 +17,10 @@
 .portfolio-gallery .portfolio-items .portfolio-item-desc p span.list {
   font-weight: 500;
   color: white;
+}
+
+@media (max-width: 768px) {
+  .portfolio-item h3 {
+    padding: 0 1em;
+  }
 }/*# sourceMappingURL=work-style.css.map */

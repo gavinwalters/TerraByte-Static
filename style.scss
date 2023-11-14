@@ -3,10 +3,20 @@ $theme_green: rgb(0, 105, 92);
 $theme_green_light: #00907e;
 $theme_text: rgb(164, 164, 164);
 
+// Define a breakpoint for mobile devices
+$mobile-breakpoint: 768px; // or the breakpoint you prefer
+* {
+  // outline: 1px solid red;
+  overflow-x: hidden;
+}
 body {
   margin: 0;
   width: 100%;
   max-width: 100%;
+  min-width: 100%;
+}
+.lock-scroll {
+  position: fixed;
 }
 
 header {
@@ -15,6 +25,7 @@ header {
   align-content: center;
   background-color: $theme_grey;
   padding: 2em;
+  position: relative; // Added for absolute positioning of the hamburger menu
   max-width: 100%;
   height: 60px;
 
@@ -22,6 +33,74 @@ header {
     padding-left: 2em;
     height: 60px;
   }
+
+  // Hamburger menu styles (hidden by default, shown in mobile view)
+  .hamburger {
+    // .fa-bars {
+    display: none; // Start by hiding the hamburger
+    position: absolute;
+    top: 43px;
+    right: 1em;
+    flex-direction: column;
+    justify-content: space-around;
+    // width: 2em; // Width of the hamburger
+    // height: 2em; // Height of the hamburger
+    background: transparent;
+    border: none;
+    cursor: pointer;
+    z-index: 10;
+    color: aliceblue;
+    font-size: 2em;
+    // }
+  }
+  .xmark {
+    display: none; // Start by hiding the x
+    position: absolute;
+    top: 43px;
+    right: 1em;
+    flex-direction: column;
+    justify-content: space-around;
+    // width: 2em; // Width of the hamburger
+    // height: 2em; // Height of the hamburger
+    background: transparent;
+    border: none;
+    cursor: pointer;
+    z-index: 10;
+    color: aliceblue;
+    font-size: 2em;
+  }
+
+  // Styles for mobile navigation (hidden by default)
+  .mobile-nav {
+    display: none; // Hidden by default
+    position: absolute;
+    top: 60px; // Height of the header
+    left: 0;
+    width: 100%;
+    background-color: $theme_grey;
+    z-index: 5;
+
+    ul {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+      display: flex;
+      flex-direction: column;
+
+      li a {
+        font-family: Poppins;
+        display: block;
+        padding: 1em;
+        color: white;
+        text-decoration: none;
+      }
+    }
+    a#active {
+      color: #00b7a1;
+      font-weight: bold;
+    }
+  }
+
   .navbar ul {
     list-style: none;
     display: flex;
@@ -44,6 +123,39 @@ header {
   .navbar a#active {
     color: #00b7a1;
     font-weight: bold;
+  }
+  // Mobile view styling
+  @media (max-width: $mobile-breakpoint) {
+    flex-direction: column;
+    align-items: flex-start;
+
+    .navbar {
+      display: none; // Hide the desktop navbar
+    }
+
+    .hamburger {
+      display: block; // Show the hamburger menu
+    }
+    .xmark {
+      display: none; // hide the x
+    }
+
+    .mobile-nav {
+      display: none; // Keep mobile-nav hidden until activated
+      position: fixed;
+      top: 0;
+      left: 0;
+      height: 100vh;
+      z-index: 9;
+
+      ul {
+        width: 100%;
+        height: 100%;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+      }
+    }
   }
 }
 
@@ -464,5 +576,116 @@ footer {
     padding-left: 5em;
     font-weight: 300;
     letter-spacing: 1px;
+  }
+}
+
+@media (max-width: $mobile-breakpoint) {
+  header {
+    flex-direction: column;
+    align-items: flex-start;
+
+    .logotype {
+      padding-left: 1em; // Adjust padding for smaller screens
+    }
+
+    .navbar {
+      display: none; // Hide the desktop navigation menu
+    }
+
+    .hamburger {
+      display: flex; // Show the hamburger menu
+    }
+    .xmark {
+      display: none; // Hide the x
+    }
+
+    .hamburger.active {
+      display: none; //Hide hamburger when menu open
+    }
+    .xmark.active {
+      display: flex; //Show X When menu open
+    }
+
+    .mobile-nav.active {
+      display: block; // Display the mobile navigation when active
+      overflow: none;
+    }
+  }
+  .lock-scroll {
+    position: fixed;
+  }
+}
+@media (max-width: $mobile-breakpoint) {
+  .hero .h-1 {
+    padding: 1em;
+    h1 {
+      font-size: 6vw;
+    }
+    h2 {
+      font-size: 4vw;
+    }
+    button {
+      padding: 0.8em 1.6em; // Adjust button padding
+      font-size: 4vw;
+    }
+  }
+}
+@media (max-width: $mobile-breakpoint) {
+  .content {
+    padding: 2em 1em;
+    p {
+      font-size: 4vw;
+      width: auto;
+      max-width: 80vw;
+      padding: 0; // Remove padding
+    }
+    button {
+      font-size: 3.5vw;
+    }
+  }
+}
+@media (max-width: $mobile-breakpoint) {
+  .about .card-container {
+    flex-direction: column;
+    padding: 2em;
+    .card {
+      max-width: 100%; // Adjust for smaller screens
+      padding: 1em 0; // Add vertical padding
+    }
+  }
+}
+@media (max-width: $mobile-breakpoint) {
+  .content .solidus {
+    flex-direction: column-reverse;
+    .solidus-image {
+      padding: 0;
+      max-width: 100%;
+      img {
+        width: 100%;
+        max-width: 100vw;
+      }
+    }
+    .solidus-text {
+      padding: 0;
+      max-width: 80vw;
+    }
+  }
+}
+@media (max-width: $mobile-breakpoint) {
+  #contact {
+    p {
+      max-width: 80%; // Make paragraph width responsive
+    }
+    button {
+      font-size: 3.5vw;
+    }
+  }
+}
+@media (max-width: $mobile-breakpoint) {
+  footer {
+    text-align: center;
+    p {
+      padding: 0 1em; // Adjust padding
+    }
   }
 }
