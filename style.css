@@ -1,7 +1,10 @@
 * {
   overflow-x: hidden;
+  scrollbar-width: none;
 }
-
+*::-webkit-scrollbar {
+  display: none;
+}
 body {
   margin: 0;
   width: 100%;
@@ -82,13 +85,17 @@ header .mobile-nav a#active {
   color: #00b7a1;
   font-weight: bold;
 }
+/* header .navbar {
+  overflow: hidden;
+} */
 header .navbar ul {
   list-style: none;
   display: flex;
   justify-content: right;
   flex-direction: row;
   padding-right: 2em;
-  height: 1em;
+  white-space: nowrap;
+  /* height: 1em; */
 }
 header .navbar a {
   color: aliceblue;
@@ -148,7 +155,12 @@ header .navbar a#active {
   background-size: auto, cover;
   background-position: 50% 50%;
   flex-direction: column;
-  background-image: linear-gradient(to bottom, rgba(0, 0, 0, 0.2) 0%, rgba(0, 0, 0, 0.7) 100%), url("https://terrabyte.solutions/images/aa065c50596f.webp");
+  background-image: linear-gradient(
+      to bottom,
+      rgba(0, 0, 0, 0.2) 0%,
+      rgba(0, 0, 0, 0.7) 100%
+    ),
+    url("https://terrabyte.solutions/images/aa065c50596f.webp");
 }
 .hero .h-1 {
   padding-bottom: 72px;
@@ -211,11 +223,21 @@ header .navbar a#active {
 }
 
 .services-hero {
-  background-image: linear-gradient(to bottom, rgba(0, 0, 0, 0.2) 0%, rgba(0, 0, 0, 0.7) 100%), url("/images/digital_cliffs.webp");
+  background-image: linear-gradient(
+      to bottom,
+      rgba(0, 0, 0, 0.2) 0%,
+      rgba(0, 0, 0, 0.7) 100%
+    ),
+    url("/images/digital_cliffs.webp");
 }
 
 .portfolio-hero {
-  background-image: linear-gradient(to bottom, rgba(0, 0, 0, 0.2) 0%, rgba(0, 0, 0, 0.7) 100%), url("/images/digital_coast.webp");
+  background-image: linear-gradient(
+      to bottom,
+      rgba(0, 0, 0, 0.2) 0%,
+      rgba(0, 0, 0, 0.7) 100%
+    ),
+    url("/images/digital_coast.webp");
 }
 
 .content {
@@ -364,7 +386,7 @@ header .navbar a#active {
 }
 .about .card-container .card img {
   -o-object-fit: cover;
-     object-fit: cover;
+  object-fit: cover;
   border-radius: 50%;
   aspect-ratio: 1/1;
   vertical-align: middle;
@@ -613,4 +635,4 @@ footer p {
   footer p {
     padding: 0 1em;
   }
-}/*# sourceMappingURL=style.css.map */
+} /*# sourceMappingURL=style.css.map */
