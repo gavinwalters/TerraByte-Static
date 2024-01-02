@@ -483,13 +483,102 @@ header .navbar a#active {
   font-family: "Poppins", Arial, Helvetica, sans-serif;
   font-weight: 100;
 }
-#contact .form .cyzagu {
-  color: white !important;
+#contact .form div.FormField {
+  background-color: rgb(22, 22, 22);
+  width: 100%;
+  margin-top: 30px;
+  position: relative;
 }
-#contact .form label {
-  font-weight: 400 !important;
-  font-size: 16px;
+#contact .form div.FormField input {
+  width: 100%;
+  border: none;
+  outline: none;
+  font-size: 1.2em;
+  padding: 7px 10px;
+  color: white;
+  background-color: transparent;
+  height: 1.5em;
+}
+#contact .form div.FormField input:focus {
+  border-width: 0 0 2px 0;
+  border-style: solid;
+  border-color: #00907e;
+}
+#contact .form div.FormField input:focus + label, #contact .form div.FormField input:valid + label {
+  top: -15px;
+  font-size: 1em;
+  color: #00b7a1;
+}
+#contact .form div.FormField input:not(:focus)::-moz-placeholder {
+  color: transparent;
+}
+#contact .form div.FormField input:not(:focus)::placeholder {
+  color: transparent;
+}
+#contact .form div.FormField input::-moz-placeholder {
+  font-family: "Poppins", Arial, Helvetica, sans-serif;
+  font-size: 0.8em;
+  font-weight: 300;
   letter-spacing: 1px;
+  color: rgb(150, 150, 150);
+}
+#contact .form div.FormField input::placeholder {
+  font-family: "Poppins", Arial, Helvetica, sans-serif;
+  font-size: 0.8em;
+  font-weight: 300;
+  letter-spacing: 1px;
+  color: rgb(150, 150, 150);
+}
+#contact .form div.FormField label {
+  position: absolute;
+  left: 10px;
+  color: rgb(183, 183, 183);
+  font-weight: 400 !important;
+  font-size: 1.2em;
+  letter-spacing: 1px;
+  top: 8px;
+  pointer-events: none;
+  transition: 0.2s;
+}
+#contact .form div.FormField textarea {
+  width: 100%;
+  border: none;
+  outline: none;
+  font-size: 1.2em;
+  padding: 7px 10px;
+  color: WHITE;
+  background-color: transparent;
+  height: 4.5em;
+}
+#contact .form div.FormField textarea:focus {
+  border-width: 0 0 2px 0;
+  border-style: solid;
+  border-color: #00907e;
+}
+#contact .form div.FormField textarea:focus + label, #contact .form div.FormField textarea:valid + label {
+  top: -15px;
+  font-size: 1em;
+  color: #00b7a1;
+}
+#contact .form div.FormField textarea:not(:focus)::-moz-placeholder {
+  color: transparent;
+}
+#contact .form div.FormField textarea:not(:focus)::placeholder {
+  color: transparent;
+}
+#contact .form div.FormField textarea::-moz-placeholder {
+  font-family: "Poppins", Arial, Helvetica, sans-serif;
+  font-size: 0.8em;
+  font-weight: 300;
+  letter-spacing: 1px;
+  color: rgb(150, 150, 150);
+}
+#contact .form div.FormField textarea::placeholder {
+  font-family: "Poppins", Arial, Helvetica, sans-serif;
+  font-size: 0.8em;
+  font-weight: 300;
+  letter-spacing: 1px;
+  color: rgb(150, 150, 150);
 }
 #contact .form button {
   font-weight: 500 !important;

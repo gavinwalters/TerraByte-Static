@@ -546,14 +546,104 @@ header {
     font-family: "Poppins", Arial, Helvetica, sans-serif;
     font-weight: 100;
 
-    .cyzagu {
-      color: white !important;
-    }
+    // .cyzagu {
+    //   color: white !important;
+    // }
 
-    label {
-      font-weight: 400 !important;
-      font-size: 16px;
-      letter-spacing: 1px;
+    // label {
+    //   color: rgb(183, 183, 183);
+    //   font-weight: 400 !important;
+    //   font-size: 16px;
+    //   letter-spacing: 1px;
+    // }
+    div.FormField {
+      background-color: rgb(22, 22, 22);
+      width: 100%;
+
+      margin-top: 30px;
+      position: relative;
+
+      input {
+        width: 100%;
+        border: none;
+        outline: none;
+        font-size: 1.2em;
+        padding: 7px 10px;
+        color: white;
+        background-color: transparent;
+        height: 1.5em;
+
+        &:focus {
+          border-width: 0 0 2px 0;
+          border-style: solid;
+          border-color: #00907e;
+        }
+        &:focus + label,
+        &:valid + label {
+          top: -15px;
+          font-size: 1em;
+          color: #00b7a1;
+        }
+        &:not(:focus)::placeholder {
+          color: transparent;
+        }
+        &::placeholder {
+          font-family: "Poppins", Arial, Helvetica, sans-serif;
+
+          font-size: 0.8em;
+          font-weight: 300;
+          letter-spacing: 1px;
+          color: rgb(150, 150, 150);
+        }
+        // &:invalid + label {
+        //   color: red;
+        // }
+      }
+
+      label {
+        position: absolute;
+        left: 10px;
+        color: rgb(183, 183, 183);
+        font-weight: 400 !important;
+        font-size: 1.2em;
+        letter-spacing: 1px;
+        top: 8px;
+        pointer-events: none;
+        transition: 0.2s;
+      }
+
+      textarea {
+        width: 100%;
+        border: none;
+        outline: none;
+        font-size: 1.2em;
+        padding: 7px 10px;
+        color: WHITE;
+        background-color: transparent;
+        height: 4.5em;
+
+        &:focus {
+          border-width: 0 0 2px 0;
+          border-style: solid;
+          border-color: #00907e;
+        }
+        &:focus + label,
+        &:valid + label {
+          top: -15px;
+          font-size: 1em;
+          color: #00b7a1;
+        }
+        &:not(:focus)::placeholder {
+          color: transparent;
+        }
+        &::placeholder {
+          font-family: "Poppins", Arial, Helvetica, sans-serif;
+          font-size: 0.8em;
+          font-weight: 300;
+          letter-spacing: 1px;
+          color: rgb(150, 150, 150);
+        }
+      }
     }
 
     button {

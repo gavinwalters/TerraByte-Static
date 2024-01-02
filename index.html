@@ -375,8 +375,28 @@
       <h3>Or send an email to:</h3>
       <a href="mailto:create@terrabyte.solutions">create@terrabyte.solutions</a>
       
-      <div class="form"><script src="/js/static.elfsight.com-platform.js" data-use-service-core defer></script>
-        <div class="elfsight-app-bf951af6-5b09-4b09-8eb3-39149754ffdd"></div></div>
+      <!-- <div class="form"><script src="/js/static.elfsight.com-platform.js" data-use-service-core defer></script>
+        <div class="elfsight-app-bf951af6-5b09-4b09-8eb3-39149754ffdd"></div></div> -->
+        <form action="/action_page.php" class="form">
+          <div class="FormField">
+            <input type="text" id="name" name="name" placeholder="What do we call you?" required>
+
+            <label for="name">Name</label>
+          </div>
+          <div class="FormField">
+            <input type="email" id="email" name="email" placeholder="ex: myname@example.com" required>
+
+            <label for="email">Email</label>
+          </div>
+          <div class="FormField">
+            <textarea name="message" id="message" placeholder="Let us hear what's on your mind!" required></textarea>
+
+            <label for="message">Your Message</label>
+          </div>
+          <label for="file">Attachments</label>
+          <input type="file" id="file" name="filename"><br>
+          <input type="submit" id="submit" value="Submit">
+        </form>
       </section>
       <!-- CONTACT FORM ENDS -->
         <footer>
