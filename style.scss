@@ -545,7 +545,8 @@ header {
     margin-top: 3em;
     font-family: "Poppins", Arial, Helvetica, sans-serif;
     font-weight: 100;
-
+    width: 80vw;
+    margin: auto;
     // .cyzagu {
     //   color: white !important;
     // }
@@ -562,13 +563,16 @@ header {
 
       margin-top: 30px;
       position: relative;
-
+      box-sizing: border-box;
       input {
         width: 100%;
+        box-sizing: border-box;
+        -moz-box-sizing: border-box;
+        -webkit-box-sizing: border-box;
         border: none;
         outline: none;
         font-size: 1.2em;
-        padding: 7px 10px;
+        padding: 1.2em 10px;
         color: white;
         background-color: transparent;
         height: 1.5em;
@@ -616,11 +620,15 @@ header {
         width: 100%;
         border: none;
         outline: none;
-        font-size: 1.2em;
+        font-size: 1em;
         padding: 7px 10px;
         color: WHITE;
         background-color: transparent;
-        height: 4.5em;
+        height: 6.5em;
+        font-family: "Poppins", Arial, Helvetica, sans-serif;
+        box-sizing: border-box;
+        -moz-box-sizing: border-box;
+        -webkit-box-sizing: border-box;
 
         &:focus {
           border-width: 0 0 2px 0;
@@ -638,13 +646,78 @@ header {
         }
         &::placeholder {
           font-family: "Poppins", Arial, Helvetica, sans-serif;
-          font-size: 0.8em;
+          font-size: 1em;
           font-weight: 300;
           letter-spacing: 1px;
           color: rgb(150, 150, 150);
         }
       }
     }
+
+    .fileinput {
+      display: flex;
+
+      .inputfile {
+        width: 0.1px;
+        height: 0.1px;
+        opacity: 0;
+        overflow: hidden;
+        position: absolute;
+        z-index: -1;
+
+        & + label {
+          font-size: 1.1em;
+          font-weight: 500;
+          color: #00b7a1;
+          background-color: rgb(22, 22, 22);
+          padding: 1em 1em;
+          margin-top: 30px;
+          display: inline-block;
+          cursor: pointer; /* "hand" cursor */
+          border-radius: 10px;
+          justify-content: center;
+        }
+        & + label * {
+          pointer-events: none;
+        }
+
+        &:focus + label,
+        & + label:hover {
+          background-color: #00907e;
+          color: #161616;
+          outline: 1px dotted black;
+          outline: -webkit-focus-ring-color auto 5px;
+        }
+      }
+      .fa-file-arrow-up {
+        font-size: 1.5em;
+      }
+    }
+
+    input#submit {
+      background-color: rgb(22, 22, 22);
+      outline: none;
+      border: none;
+      color: #00907e;
+      font-family: "Poppins", Arial, Helvetica, sans-serif;
+      font-size: 1.2em;
+      font-weight: 400;
+      width: 100%;
+      margin-top: 30px;
+      padding: 1em 0;
+      cursor: pointer;
+
+      &:hover,
+      &:focus {
+        background-color: #00907e;
+        color: #161616;
+        outline: 1px dotted black;
+        outline: -webkit-focus-ring-color auto 5px;
+      }
+    }
+    // label {
+    //   color: #00907e;
+    // }
 
     button {
       font-weight: 500 !important;

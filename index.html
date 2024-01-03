@@ -377,7 +377,7 @@
       
       <!-- <div class="form"><script src="/js/static.elfsight.com-platform.js" data-use-service-core defer></script>
         <div class="elfsight-app-bf951af6-5b09-4b09-8eb3-39149754ffdd"></div></div> -->
-        <form action="/action_page.php" class="form">
+        <form action="/home/wae8911z2q9t/PHPMailerTest/mailer.php" method="post" class="form" enctype="multipart/form-data">
           <div class="FormField">
             <input type="text" id="name" name="name" placeholder="What do we call you?" required>
 
@@ -393,8 +393,10 @@
 
             <label for="message">Your Message</label>
           </div>
-          <label for="file">Attachments</label>
-          <input type="file" id="file" name="filename"><br>
+          <div class="fileinput">
+            <input type="file" id="file" name="filename" class="inputfile">
+            <label for="file"><i class="fa-solid fa-file-arrow-up"></i> Add Attachments...</label>
+          </div>
           <input type="submit" id="submit" value="Submit">
         </form>
       </section>
