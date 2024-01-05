@@ -1,19 +1,54 @@
 <?php
+ini_set("include_path", '/home/wae8911z2q9t/php:' . ini_get("include_path"));
+
+// include('index.php');
+// phpinfo();
 
 use PHPMailer\PHPMailer\PHPMailer;
 use PHPMailer\PHPMailer\Exception;
 
-ini_set("include_path", '/home/wae8911z2q9t/php:' . ini_get("include_path"));
 $target_dir = '/home/wae8911z2q9t/TempFormFileDir';
 $uploadOk = 1;
 
+function sanitize($input)
+{
+    return htmlspecialchars(trim($input));
+}
 
+function debug_to_console($data)
+{
+    $output = $data;
+    if (is_array($output))
+        $output = implode(',', $output);
+
+    echo "<script>console.log('Debug Objects: " . $output . "' );</script>";
+}
+function console_log($output, $with_script_tags = true)
+{
+    $js_code = 'console.log(' . json_encode($output, JSON_HEX_TAG) .
+        ');';
+    if ($with_script_tags) {
+        $js_code = '<script>' . $js_code . '</script>';
+    }
+    echo $js_code;
+}
+
+debug_to_console("Pre-submit statement");
+console_log("console_log pre submit");
+console_log("submit: " . $_POST['submit']);
+console_log("name" . $_POST['name']);
+console_log("email" . $_POST['email']);
+console_log("mesg" . $_POST['message']);
 
 if (isset($_POST['submit'])) {
+    debug_to_console("Post-submit statement");
+    console_log("console_log post-submit");
+    // Sanitize all the incoming data
+    $sanitized = array_map('sanitize', $_POST);
     $to = "create@terrabyte.solutions";
-    $name = trim($_POST['name']);
-    $email = trim($_POST['email']);
-    $message = trim($_POST['message']);
+    $name = $sanitized['name'];
+    $email = $sanitized['email'];
+    $message = $sanitized['message'];
     $subject = "WebForm submission from " . $name;
     $headers = "From: " . $email;
     $result = mail($to, $subject, $message, $headers);
@@ -84,9 +119,79 @@ if (isset($_POST['submit'])) {
             $mail->AltBody = $message;
 
             $mail->send();
+            $result = 'success';
             echo 'Message has been sent';
         } catch (Exception $e) {
             echo "Message could not be sent. Mailer Error: {$mail->ErrorInfo}";
+        }
+        echo '<script type="text/javascript">
+        window.location = "https://terrabyte.solutions";
+        </script>';
+        if ($result) {
+            echo '<script type="text/javascript">alert("Your Message was sent Successfully!");</script>';
+            echo '<script type="text/javascript">window.location.href = window.location.href;</script>';
+        } else {
+            echo '<script type="text/javascript">alert("Sorry! Message was not sent, try again later.");</script>';
+            echo '<script type="text/javascript">window.location.href = window.location.href;</script>';
+        }
+    }
+    //mail with no attachment
+    else {
+        //Load Composer's autoloader
+        require '/home/wae8911z2q9t/PHPMailerTest/vendor/autoload.php';
+
+        //load form
+
+        require '/home/wae8911z2q9t/PHPMailerTest/PHPmailer/src/Exception.php';
+        require '/home/wae8911z2q9t/PHPMailerTest/PHPmailer/src/PHPMailer.php';
+        require '/home/wae8911z2q9t/PHPMailerTest/PHPmailer/src/SMTP.php';
+
+        // Instantiation and passing [ICODE]true[/ICODE] enables exceptions
+        $mail = new PHPMailer(true);
+
+        try {
+            //Server settings
+            $mail->SMTPDebug = 0;                      //Enable verbose debug output
+            $mail->isSMTP();                                            //Send using SMTP
+            $mail->Host = 'localhost'; //GoDaddy host server
+            $mail->Username = 'create@terrabyte.solutions'; // SMTP username
+            $mail->Password = '10010'; // SMTP password
+            $mail->SMTPAuth   = false;
+            $mail->Port = 25; // TCP port to connect to                          //TCP port to connect to; use 587 if you have set `SMTPSecure = PHPMailer::ENCRYPTION_STARTTLS`
+
+            //Recipients
+            $mail->setFrom($email, (empty($name) ? 'Contact form' : $name));
+            $mail->addAddress('create@terrabyte.ca', 'TerraByte Solutions');     //Add a recipient
+            $mail->addReplyTo($email, $name);
+
+
+            //Attachments
+            // Add attachment to email 
+            if (!empty($target_file) && file_exists($target_file)) {
+                $mail->addAttachment($target_file);         //Add attachments
+            }
+
+            //Content
+            $mail->isHTML(true);                                  //Set email format to HTML
+            $mail->Subject = $subject;
+            $mail->Body    = $message;
+            $mail->AltBody = $message;
+
+            $mail->send();
+            $result = 'success';
+            echo 'Message has been sent';
+        } catch (Exception $e) {
+            echo "Message could not be sent. Mailer Error: {$mail->ErrorInfo}";
+        }
+        echo '<script type="text/javascript">
+        window.location = "https://terrabyte.solutions";
+        </script>';
+        if ($result) {
+            echo '<script type="text/javascript">window.location.hostname = window.location.hostname;</script>';
+            echo '<script type="text/javascript">alert("Your Message was sent Successfully!");</script>';
+        } else {
+            echo '<script type="text/javascript">window.location.hostname = window.location.hostname;</script>';
+            echo '<script type="text/javascript">alert("Sorry! Message was not sent, try again later.");</script>';
         }
     }
 }
