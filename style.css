@@ -535,6 +535,10 @@ header .navbar a#active {
   letter-spacing: 1px;
   color: rgb(150, 150, 150);
 }
+#contact .form div.FormField input:-webkit-autofill, #contact .form div.FormField input:-webkit-autofill:focus, #contact .form div.FormField input:-internal-autofill-selected {
+  -webkit-transition: background-color 0s 600000s, color 0s 600000s !important;
+  transition: background-color 0s 600000s, color 0s 600000s !important;
+}
 #contact .form div.FormField label {
   position: absolute;
   left: 10px;

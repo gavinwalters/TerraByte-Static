@@ -547,6 +547,7 @@ header {
     font-weight: 100;
     width: 80vw;
     margin: auto;
+
     // .cyzagu {
     //   color: white !important;
     // }
@@ -599,9 +600,11 @@ header {
           letter-spacing: 1px;
           color: rgb(150, 150, 150);
         }
-        // &:invalid + label {
-        //   color: red;
-        // }
+        &:-webkit-autofill,
+        &:-webkit-autofill:focus,
+        &:-internal-autofill-selected {
+          transition: background-color 0s 600000s, color 0s 600000s !important;
+        }
       }
 
       label {
