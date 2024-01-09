@@ -79,13 +79,13 @@ if (isset($_POST['submit'])) {
         }
 
         //Load Composer's autoloader
-        require '/home/wae8911z2q9t/PHPMailerTest/vendor/autoload.php';
+        require '/vendor/autoload.php';
 
         //load form
 
-        require '/home/wae8911z2q9t/PHPMailerTest/PHPmailer/src/Exception.php';
-        require '/home/wae8911z2q9t/PHPMailerTest/PHPmailer/src/PHPMailer.php';
-        require '/home/wae8911z2q9t/PHPMailerTest/PHPmailer/src/SMTP.php';
+        require '/vendor/phpmailer/phpmailer/src/Exception.php';
+        require '/vendor/phpmailer/phpmailer/src/PHPMailer.php';
+        require '/vendor/phpmailer/phpmailer/src/SMTP.php';
 
         // Instantiation and passing [ICODE]true[/ICODE] enables exceptions
         $mail = new PHPMailer(true);
@@ -120,9 +120,9 @@ if (isset($_POST['submit'])) {
 
             $mail->send();
             $result = 'success';
-            echo 'Message has been sent';
+            debug_to_console('Message has been sent with attachment');
         } catch (Exception $e) {
-            echo "Message could not be sent. Mailer Error: {$mail->ErrorInfo}";
+            debug_to_console("Message could not be sent. Mailer Error: {$mail->ErrorInfo}");
         }
         debug_to_console("Post-attachment send");
 
@@ -140,13 +140,13 @@ if (isset($_POST['submit'])) {
     //mail with no attachment
     else {
         //Load Composer's autoloader
-        require '/home/wae8911z2q9t/PHPMailerTest/vendor/autoload.php';
+        require '/vendor/autoload.php';
 
         //load form
 
-        require '/home/wae8911z2q9t/PHPMailerTest/PHPmailer/src/Exception.php';
-        require '/home/wae8911z2q9t/PHPMailerTest/PHPmailer/src/PHPMailer.php';
-        require '/home/wae8911z2q9t/PHPMailerTest/PHPmailer/src/SMTP.php';
+        require '/vendor/phpmailer/phpmailer/src/Exception.php';
+        require '/vendor/phpmailer/phpmailer/src/PHPMailer.php';
+        require '/vendor/phpmailer/phpmailer/src/SMTP.php';
 
         // Instantiation and passing [ICODE]true[/ICODE] enables exceptions
         $mail = new PHPMailer(true);
@@ -181,12 +181,11 @@ if (isset($_POST['submit'])) {
 
             $mail->send();
             $result = 'success';
-            echo 'Message has been sent';
+            debug_to_console('Message has been sent with no attachment');
         } catch (Exception $e) {
-            echo "Message could not be sent. Mailer Error: {$mail->ErrorInfo}";
+            debug_to_console("Message could not be sent. Mailer Error: {$mail->ErrorInfo}");
         }
         debug_to_console("post-nonattachment send");
-
         echo '<script type="text/javascript">
         window.location = "https://terrabyte.solutions";
         </script>';

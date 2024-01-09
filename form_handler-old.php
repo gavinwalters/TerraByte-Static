@@ -1,11 +1,21 @@
 <?php
-ini_set("include_path", '/home/wae8911z2q9t/php:' . ini_get("include_path"));
+// ini_set("include_path", '/home/wae8911z2q9t/php:' . ini_get("include_path"));
 
 // include('index.php');
 // phpinfo();
 
 use PHPMailer\PHPMailer\PHPMailer;
 use PHPMailer\PHPMailer\Exception;
+
+
+//Load Composer's autoloader
+require 'vendor/autoload.php';
+
+//load PHPMailer path
+
+require 'vendor/phpmailer/phpmailer/src/Exception.php';
+require 'vendor/phpmailer/phpmailer/src/PHPMailer.php';
+require 'vendor/phpmailer/phpmailer/src/SMTP.php';
 
 $target_dir = '/home/wae8911z2q9t/TempFormFileDir';
 $uploadOk = 1;
@@ -36,9 +46,9 @@ function console_log($output, $with_script_tags = true)
 debug_to_console("Pre-submit statement");
 console_log("console_log pre submit");
 console_log("submit: " . $_POST['submit']);
-console_log("name" . $_POST['name']);
-console_log("email" . $_POST['email']);
-console_log("mesg" . $_POST['message']);
+console_log("name: " . $_POST['name']);
+console_log("email: " . $_POST['email']);
+console_log("mesg: " . $_POST['message']);
 
 if (isset($_POST['submit'])) {
     debug_to_console("Post-submit statement");
@@ -55,7 +65,7 @@ if (isset($_POST['submit'])) {
 
     // Upload attachment file 
     if (!empty($_FILES["attachment"]["name"])) {
-
+        debug_to_console("Attachment detected");
         // File path config 
         $fileName = basename($_FILES["attachment"]["name"]);
         $target_file = $targetDir . $fileName;
@@ -78,14 +88,7 @@ if (isset($_POST['submit'])) {
             }
         }
 
-        //Load Composer's autoloader
-        require '/home/wae8911z2q9t/PHPMailerTest/vendor/autoload.php';
 
-        //load form
-
-        require '/home/wae8911z2q9t/PHPMailerTest/PHPmailer/src/Exception.php';
-        require '/home/wae8911z2q9t/PHPMailerTest/PHPmailer/src/PHPMailer.php';
-        require '/home/wae8911z2q9t/PHPMailerTest/PHPmailer/src/SMTP.php';
 
         // Instantiation and passing [ICODE]true[/ICODE] enables exceptions
         $mail = new PHPMailer(true);
@@ -120,33 +123,27 @@ if (isset($_POST['submit'])) {
 
             $mail->send();
             $result = 'success';
-            echo 'Message has been sent';
+            debug_to_console('Message has been sent');
         } catch (Exception $e) {
-            echo "Message could not be sent. Mailer Error: {$mail->ErrorInfo}";
+            debug_to_console("Message could not be sent. Mailer Error: {$mail->ErrorInfo}");
         }
         debug_to_console("Post-attachment send");
 
         echo '<script type="text/javascript">
         window.location = "https://terrabyte.solutions";
         </script>';
-        // if ($result) {
-        //     echo '<script type="text/javascript">alert("Your Message was sent Successfully!");</script>';
-        //     echo '<script type="text/javascript">window.location.href = window.location.href;</script>';
-        // } else {
-        //     echo '<script type="text/javascript">alert("Sorry! Message was not sent, try again later.");</script>';
-        //     echo '<script type="text/javascript">window.location.href = window.location.href;</script>';
-        // }
     }
     //mail with no attachment
     else {
-        //Load Composer's autoloader
-        require '/home/wae8911z2q9t/PHPMailerTest/vendor/autoload.php';
+        debug_to_console("No attachment detected")
+        // //Load Composer's autoloader
+        // require '/home/wae8911z2q9t/PHPMailerTest/vendor/autoload.php';
 
-        //load form
+        // //load form
 
-        require '/home/wae8911z2q9t/PHPMailerTest/PHPmailer/src/Exception.php';
-        require '/home/wae8911z2q9t/PHPMailerTest/PHPmailer/src/PHPMailer.php';
-        require '/home/wae8911z2q9t/PHPMailerTest/PHPmailer/src/SMTP.php';
+        // require '/home/wae8911z2q9t/PHPMailerTest/PHPmailer/src/Exception.php';
+        // require '/home/wae8911z2q9t/PHPMailerTest/PHPmailer/src/PHPMailer.php';
+        // require '/home/wae8911z2q9t/PHPMailerTest/PHPmailer/src/SMTP.php';
 
         // Instantiation and passing [ICODE]true[/ICODE] enables exceptions
         $mail = new PHPMailer(true);
@@ -181,21 +178,21 @@ if (isset($_POST['submit'])) {
 
             $mail->send();
             $result = 'success';
-            echo 'Message has been sent';
+            debug_to_console('Message has been sent');
         } catch (Exception $e) {
-            echo "Message could not be sent. Mailer Error: {$mail->ErrorInfo}";
+            debug_to_console("Message could not be sent. Mailer Error: " . $mail->ErrorInfo);
         }
-        debug_to_console("post-nonattachment send");
 
+        debug_to_console("post-nonattachment send");
         echo '<script type="text/javascript">
         window.location = "https://terrabyte.solutions";
         </script>';
-        // if ($result) {
-        //     echo '<script type="text/javascript">window.location.hostname = window.location.hostname;</script>';
-        //     echo '<script type="text/javascript">alert("Your Message was sent Successfully!");</script>';
-        // } else {
-        //     echo '<script type="text/javascript">window.location.hostname = window.location.hostname;</script>';
-        //     echo '<script type="text/javascript">alert("Sorry! Message was not sent, try again later.");</script>';
-        // }
     }
+    // if ($result) {
+    //     echo '<script type="text/javascript">alert("Your Message was sent Successfully!");</script>';
+    //     echo '<script type="text/javascript">window.location.href = window.location.href;</script>';
+    // } else {
+    //     echo '<script type="text/javascript">alert("Sorry! Message was not sent, try again later.");</script>';
+    //     echo '<script type="text/javascript">window.location.href = window.location.href;</script>';
+    // }
 }
